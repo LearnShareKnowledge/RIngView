@@ -15,11 +15,11 @@ public class MainActivity extends AppCompatActivity {
 
         setContentView(R.layout.activity_main);
 
-        mCircleView = (CircleView) findViewById(R.id.circleView);
+       // mCircleView = (CircleView) findViewById(R.id.circleView);
 
-        mCircleView.setCircleProperties(500,300,250);
+       // mCircleView.setCircleProperties(500,300,250);
 
-        mCircleView.draw();
+       // mCircleView.draw();
 
     }
 }

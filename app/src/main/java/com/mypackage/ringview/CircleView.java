@@ -1,6 +1,7 @@
 package com.mypackage.ringview;
 
 import android.content.Context;
+import android.content.res.TypedArray;
 import android.graphics.Canvas;
 import android.graphics.Color;
 import android.graphics.Paint;
@@ -21,34 +22,51 @@ public class CircleView extends View
     }
 
     public CircleView(Context context, @Nullable AttributeSet attrs) {
+
         super(context, attrs);
+
+        TypedArray a = context.getTheme().obtainStyledAttributes(attrs, R.styleable.CircleView,0,0);
+
+        try {
+            centerX = a.getFloat(R.styleable.CircleView_centerX,0);
+            centerY = a.getFloat(R.styleable.CircleView_centerY,0);
+            radius = a.getFloat(R.styleable.CircleView_radius,0);
+        }finally
+        {
+            a.recycle();
+        }
+
     }
+
+
 
     public CircleView(Context context, @Nullable AttributeSet attrs, int defStyleAttr) {
         super(context, attrs, defStyleAttr);
     }
 
-    public void setCircleProperties(float cX , float cY , float radius)
+    /*public void setCircleProperties(float cX , float cY , float radius)
     {
         this.centerX = cX;
 
         this.centerY = cY;
 
         this.radius = radius;
-    }
+    }*/
 
-    public void draw()
+    /*public void draw()
     {
         invalidate();
 
         requestLayout();
-    }
+    }*/
 
 
     @Override
     protected void onDraw(Canvas canvas)
     {
-        paint.setStrokeWidth(10);
+        paint.setStrokeWidth(25);
+
+        paint.setStyle(Paint.Style.STROKE);
 
         paint.setColor(Color.GREEN);
 
